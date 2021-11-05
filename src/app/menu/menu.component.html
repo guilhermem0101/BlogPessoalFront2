@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
       <ul class="navbar-nav mr-auto d-flex align-items-center">
         <li class="nav-item active">
-          <img src="https://scontent.fgru6-1.fna.fbcdn.net/v/t1.6435-9/89382940_3926725487339405_4883013159943667712_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH6YpUB0x7yHj-MeuNB6DVJAhNbZdv7dIYCE1tl2_t0hrvJoz2qRXtHbziRtA3GoWr4eafy2WsJALENr4dcvW2a&_nc_ohc=hdxBHidC9hcAX-DWtTi&_nc_ht=scontent.fgru6-1.fna&oh=89ce78dac2c32b77c81ef6635c4d56ee&oe=61A03347" alt="" width="50px" height="50px" class="img-fluid rounded-circle">
+          <img src="{{foto}}" alt="" width="50px" height="50px" class="img-fluid rounded-circle">
         </li>
         <li class="nav-item p-3">
-          <p class="m-0 font-weight-bold text-white fs-16">Guilherme</p>
+          <p class="m-0 font-weight-bold text-white fs-16">Olá, {{nome}}</p>
         </li> 
         <li class="nav-item p-3">
             <a href="">
@@ -22,9 +22,10 @@
 
       <ul class="navbar-nav ml-auto d-flex align-items-center">
         <li class="nav-item p-3">
-            <a class="m-0 font-weight-bold text-white fs-16">sair</a>
+            <a (click)='sair()' class="m-0 font-weight-bold text-white fs-16">sair</a>
             <a href="">
-                <p class= "text-white fs-14 m-0"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                <p class= "text-white fs-14 m-0">
+                  <i class="fa fa-sign-out" aria-hidden="true"></i>
                 </p>
             </a>
         </li> 
