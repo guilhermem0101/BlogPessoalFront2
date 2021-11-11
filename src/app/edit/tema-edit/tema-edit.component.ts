@@ -10,31 +10,38 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./tema-edit.component.css']
 })
 export class TemaEditComponent implements OnInit {
-  tema: Tema = new Tema() 
-  constructor(private temaService: TemaService, private router:Router, private route: ActivatedRoute) { }
+
+  tema: Tema = new Tema()
+
+  constructor(
+    private temaService: TemaService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    if(environment.token ==''){
-      //alert('sua sessão expirou.')
+    if(environment.token == '') {
       this.router.navigate(['/entrar'])
     }
-    let id = this.route.snapshot.params['id']
-    this.findByIdTema(id)
-      
-    
+
+    let idTema = this.route.snapshot.params['id']
+    this.findByIdTema(idTema)
   }
 
-  findByIdTema(id:number){
-    this.temaService.getByIdTema(id).subscribe((resp: Tema)=>{
-      this.tema =resp
-    })
-  }
+ findByIdTema(id: number) {
+  this.temaService.getByIdTema(id).subscribe((resp: Tema)=> {
+    this.tema = resp
+  })
 
-  atualizar(){
-    this.temaService.putTema(this.tema).subscribe((resp: Tema)=>{
-      this.tema = resp
-      alert('tema atualizado com sucesso')
-      this.router.navigate(['/tema'])
-    })
-  }
+ }
+
+ atualizar() {
+   this.temaService.putTema(this.tema).subscribe((resp: Tema)=> {
+     this.tema = resp
+
+     alert('Atualizado com sucesso')
+     this.router.navigate(['/tema'])
+   })
+ }
+
 }
